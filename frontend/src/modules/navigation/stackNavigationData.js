@@ -14,7 +14,7 @@ import AvailableInFullVersion from '../../modules/availableInFullVersion/Availab
 
 import { colors, fonts } from '../../styles';
 
-const headerLeftComponent = (props) => {
+const headerLeftComponent = props => {
   return (
     <TouchableOpacity
       onPress={props.onPress}
@@ -30,21 +30,21 @@ const headerLeftComponent = (props) => {
           height: 20,
         }}
       />
-    </TouchableOpacity>    
-  )
-}
+    </TouchableOpacity>
+  );
+};
 
-const headerBackground = require('../../../assets/images/topBarBg.png');
+const headerBackground = require('../../../assets/images/scout/backgroundTop.png');
 
 const StackNavigationData = [
   {
-    name: 'React Native Starter',
+    name: 'SCOUT.LY',
     component: TabNavigator,
     headerLeft: null,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
+      fontFamily: fonts.primaryBold,
+      color: '#FF5959',
       fontSize: 18,
     },
   },
@@ -136,6 +136,6 @@ const StackNavigationData = [
       fontSize: 18,
     },
   },
-]
+];
 
 export default StackNavigationData;

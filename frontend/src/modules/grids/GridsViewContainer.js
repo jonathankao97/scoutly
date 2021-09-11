@@ -126,8 +126,26 @@ const listData = [
   },
 ];
 
+const sampleData = [
+  {
+    id: 1,
+    first_name: 'Eric',
+    last_name: 'Chen',
+    subtitle: 'Naperville, IL',
+    class_year: '2024',
+    high_school: 'Naperville North High School',
+    hometown: 'Naperville',
+    state: 'Illinois',
+    position: 'QB',
+    profile_picture:
+      'https://reactnativestarter.com/demo/images/city-sunny-people-street.jpg',
+    badge: 'NEW',
+    badgeColor: '#A1FF43',
+  },
+];
+
 export default compose(
-  withState('tabIndex', 'setTabIndex', 0),
-  withState('tabs', 'setTabs', ['Grid', 'List 1', 'List 2']),
-  withState('data', 'setData', listData),
+  withState('tabIndex', 'setTabIndex', 2),
+  withState('tabs', 'setTabs', ['Your Players Of Interest']),
+  withState('data', 'setData', sampleData),
 )(GridView);

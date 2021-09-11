@@ -15,16 +15,15 @@ import { RadioGroup, GridRow } from '../../components';
 
 export default class GridsScreen extends React.Component {
   _getRenderItemFunction = () =>
-    [this.renderRowOne, this.renderRowTwo, this.renderRowThree][
+    [this.renderRowOne, this.renderRowThree, this.renderRowThree][
       this.props.tabIndex
     ];
 
-    _openArticle = article => {
-      this.props.navigation.navigate('Article', {
-        article,
-      });
-    };
-  
+  _openArticle = article => {
+    this.props.navigation.navigate('Article', {
+      article,
+    });
+  };
 
   renderRowOne = rowData => {
     const cellViews = rowData.item.map(item => (
@@ -81,13 +80,24 @@ export default class GridsScreen extends React.Component {
       onPress={() => this._openArticle(item)}
     >
       <View style={styles.itemThreeSubContainer}>
-        <Image source={{ uri: item.image }} style={styles.itemThreeImage} />
+        <Image
+          source={{
+            uri:
+              'https://upload.wikimedia.org/wikipedia/commons/b/b6/Justin_Fields_%28cropped%29_%28cropped%29.jpg',
+          }}
+          style={styles.itemThreeImage}
+        />
         <View style={styles.itemThreeContent}>
-          <Text style={styles.itemThreeBrand}>{item.brand}</Text>
+          <Text style={styles.itemThreeBrand}>{item.position}</Text>
           <View>
-            <Text style={styles.itemThreeTitle}>{item.title}</Text>
+            <Text style={styles.itemThreeTitle}>
+              {item.first_name} {item.last_name}
+            </Text>
             <Text style={styles.itemThreeSubtitle} numberOfLines={1}>
-              {item.subtitle}
+              {item.high_school}
+            </Text>
+            <Text style={styles.itemThreeSubtitle2} numberOfLines={1}>
+              {item.hometown}, {item.state}
             </Text>
           </View>
           <View style={styles.itemThreeMetaContainer}>
@@ -106,7 +116,7 @@ export default class GridsScreen extends React.Component {
                 </Text>
               </View>
             )}
-            <Text style={styles.itemThreePrice}>{item.price}</Text>
+            <Text style={styles.itemThreePrice}>{item.class_year}</Text>
           </View>
         </View>
       </View>
@@ -251,16 +261,21 @@ const styles = StyleSheet.create({
   itemThreeBrand: {
     fontFamily: fonts.primaryRegular,
     fontSize: 14,
-    color: '#617ae1',
+    color: '#FCB514',
   },
   itemThreeTitle: {
     fontFamily: fonts.primaryBold,
     fontSize: 16,
-    color: '#5F5F5F',
+    color: '#FF5959',
   },
   itemThreeSubtitle: {
     fontFamily: fonts.primaryRegular,
     fontSize: 12,
+    color: '#a4a4a4',
+  },
+  itemThreeSubtitle2: {
+    fontFamily: fonts.primaryRegular,
+    fontSize: 10,
     color: '#a4a4a4',
   },
   itemThreeMetaContainer: {

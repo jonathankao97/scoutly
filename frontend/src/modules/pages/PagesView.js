@@ -61,7 +61,7 @@ export default function PagesScreen(props) {
           />
           <Text style={styles.itemText}>Chats</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => props.navigation.navigate('Calendar')}
           style={styles.item}
         >
@@ -71,7 +71,7 @@ export default function PagesScreen(props) {
             style={styles.itemImage}
           />
           <Text style={styles.itemText}>Calendar</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity
           onPress={() => props.navigation.navigate('Auth')}
           style={styles.item}

@@ -16,11 +16,11 @@ const tabNavigationData = [
     component: HomeScreen,
     icon: iconHome,
   },
-  {
-    name: 'Calendar',
-    component: CalendarScreen,
-    icon: iconCalendar,
-  },
+  // {
+  //   name: 'Calendar',
+  //   component: CalendarScreen,
+  //   icon: iconCalendar,
+  // },
   {
     name: 'Grids',
     component: GridsScreen,
