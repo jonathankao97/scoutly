@@ -1,105 +1,132 @@
-/* eslint-disable class-methods-use-this */
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { Agenda } from 'react-native-calendars';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import TinderCard from 'react-tinder-card';
+import { Image, Text } from 'react-native';
 
-import { colors, fonts } from '../../styles';
+const Container = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
 
-class CalendarScreen extends React.Component {
-  rowHasChanged(r1, r2) {
-    return r1.name !== r2.name;
-  }
+const Header = styled.Text`
+  color: #000;
+  font-size: 30px;
+  margin-bottom: 30px;
+`;
 
-  renderEmptyDate() {
-    return (
-      <View style={styles.emptyDate}>
-        <Text>This is empty date!</Text>
-      </View>
-    );
-  }
+const CardContainer = styled.View`
+  width: 90%;
+  max-width: 320px;
+  height: 600px;
+`;
 
-  renderItem(item) {
-    const labels =
-      item.labels &&
-      item.labels.map(label => (
-        <View
-          key={`label-${label}`}
-          style={{
-            padding: 5,
-            backgroundColor:
-              label === 'Urgent' ? colors.primary : colors.secondary,
-            borderRadius: 3,
-          }}
-        >
-          <Text style={{ color: 'white' }}>{label}</Text>
-        </View>
-      ));
+const Card = styled.View`
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  max-width: 3200px;
+  height: 600px;
+  shadow-color: black;
+  shadow-opacity: 0.2;
+  shadow-radius: 20px;
+  border-radius: 20px;
+  resize-mode: cover;
+`;
 
-    return (
-      <View style={styles.item}>
-        <View>
-          <Text
-            style={{
-              color: '#48506B',
-              fontFamily: fonts.primaryRegular,
-              marginBottom: 10,
-            }}
-          >
-            {item.name}
-          </Text>
-          <Text style={{ color: '#9B9B9B', fontFamily: fonts.primaryRegular }}>
-            {item.time}
-          </Text>
-        </View>
+const CardImage = styled.ImageBackground`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+`;
 
-        <View styleName="horizontal h-start">{labels}</View>
-      </View>
-    );
-  }
+const CardTitle = styled.Text`
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  color: #fff;
+`;
 
-  render() {
-    const { items, loadItems } = this.props;
-    return (
-      <Agenda
-        items={items}
-        loadItemsForMonth={loadItems}
-        renderItem={this.renderItem}
-        renderEmptyDate={this.renderEmptyDate}
-        rowHasChanged={this.rowHasChanged}
-        theme={{
-          dotColor: colors.primaryLight,
-          selectedDayBackgroundColor: colors.primaryLight,
-          agendaDayTextColor: colors.primaryLight,
-          agendaDayNumColor: colors.primaryLight,
-          agendaTodayColor: '#4F44B6',
-          backgroundColor: '#F1F1F8',
-        }}
-      />
-    );
-  }
+const InfoText = styled.Text`
+  height: 28px;
+  justify-content: center;
+  display: flex;
+  z-index: -100;
+`;
+
+const db = [
+  {
+    name: 'Richard Hendricks',
+    img:
+      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+  },
+  {
+    name: 'Erlich Bachman',
+    img:
+      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+  },
+  {
+    name: 'Monica Hall',
+    img:
+      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+  },
+  {
+    name: 'Jared Dunn',
+    img:
+      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+  },
+  {
+    name: 'Dinesh Chugtai',
+    img:
+      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+  },
+];
+
+function Simple() {
+  const [characters, setCharacters] = useState(db);
+  const [lastDirection, setLastDirection] = useState();
+
+  const swiped = (direction, nameToDelete) => {
+    console.log('swiped');
+    const newArr = [...characters];
+    newArr.filter(item => item.name != nameToDelete);
+    //rconsole.log(newArr)
+    setCharacters(newArr);
+    setLastDirection(direction);
+  };
+
+  const outOfFrame = name => {
+    console.log('out of frame');
+  };
+
+  return (
+    <Container>
+      <Header>Atheletes</Header>
+      <CardContainer>
+        {characters.map(character => {
+          console.log(character);
+
+          return (
+            <TinderCard
+              key={character.name}
+              onSwipe={dir => swiped(dir, character.name)}
+              onCardLeftScreen={() => outOfFrame(character.name)}
+            >
+              <Card>
+                <Text numberOfLines={3} style = {{
+                  margin: "20px",
+                  fontSize : "24px",
+                  textAlign:"center"
+                }}>{character.name}</Text>
+              </Card>
+            </TinderCard>
+          );
+        })}
+      </CardContainer>
+    </Container>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.whiteTwo,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  item: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: 'white',
-    borderRadius: 5,
-    padding: 10,
-    marginRight: 10,
-    marginTop: 10,
-  },
-  emptyDate: {
-    height: 15,
-    flex: 1,
-    paddingTop: 30,
-  },
-});
-
-export default CalendarScreen;
+export default Simple;

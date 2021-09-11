@@ -31,6 +31,7 @@
     "jetifier": "^1.6.5",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
+    "p-sleep": "^1.1.0",
     "react": "16.9.0",
     "react-native": "0.63.3",
     "react-native-calendars": "1.265.0",
@@ -50,12 +51,15 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-video": "^5.1.1",
     "react-redux": "^6.0.1",
+    "react-spring": "^9.2.4",
+    "react-tinder-card": "^1.4.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.3.1",
     "victory-native": "^31.0.0"
   },
   "devDependencies": {
