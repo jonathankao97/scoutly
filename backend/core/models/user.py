@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.timezone import now
+from phonenumber_field import modelfields
 
 
 class UserManager(BaseUserManager):
@@ -34,6 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
+    phone_number = modelfields.PhoneNumberField()
 
     date_created = models.DateTimeField(default=now, editable=False)
     is_active = models.BooleanField(default=True)
