@@ -5,7 +5,7 @@ from core.serializers import VideoSerializer, UserSerializer
 
 class UserProfileSerializer(serializers.ModelSerializer):
     videos = VideoSerializer(source="video_set", many=True, read_only=True)
-    user = UserSerializer(read_only=True)
+    user_object = UserSerializer(source="user", read_only=True)
 
     class Meta:
         model = UserProfile
