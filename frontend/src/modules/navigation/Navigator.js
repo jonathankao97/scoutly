@@ -9,30 +9,33 @@ import NavigatorView from './RootNavigation';
 
 // import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
 
-const iconHome = require('../../../assets/images/drawer/home.png');
-// const iconCalendar = require('../../../assets/images/drawer/calendar.png');
-const iconGrids = require('../../../assets/images/drawer/grids.png');
-const iconPages = require('../../../assets/images/drawer/pages.png');
+// const iconHome = require('../../../assets/images/drawer/home.png');
+// // const iconCalendar = require('../../../assets/images/drawer/calendar.png');
+// const iconGrids = require('../../../assets/images/drawer/grids.png');
+// const iconPages = require('../../../assets/images/drawer/pages.png');
 const iconComponents = require('../../../assets/images/drawer/components.png');
 // const iconSettings = require('../../../assets/images/drawer/settings.png');
 const iconBlog = require('../../../assets/images/drawer/blog.png');
+const iconActivity = require('../../../assets/images/tabbar/activity.png');
+const iconReels = require('../../../assets/images/tabbar/reels.png');
+const iconProfile = require('../../../assets/images/tabbar/profile.png');
 
 const drawerData = [
   {
     name: 'Home',
-    icon: iconHome,
+    icon: iconReels,
   },
   // {
   //   name: 'Calendar',
   //   icon: iconCalendar,
   // },
   {
-    name: 'Grids',
-    icon: iconGrids,
+    name: 'Activity',
+    icon: iconActivity,
   },
   {
-    name: 'Pages',
-    icon: iconPages,
+    name: 'Profile',
+    icon: iconProfile,
   },
   {
     name: 'Components',
@@ -68,8 +71,8 @@ function CustomDrawerContent(props) {
           onPress={() => props.navigation.navigate(item.name)}
         />
       ))}
-      <View style={styles.divider} />
-      <DrawerItem
+      {/* <View style={styles.divider} /> */}
+      {/* <DrawerItem
         label={() => (
           <View style={styles.menuLabelFlex}>
             <Image style={{ width: 20, height: 20 }} source={iconBlog} />
@@ -77,7 +80,7 @@ function CustomDrawerContent(props) {
           </View>
         )}
         onPress={() => props.navigation.navigate('Blog')}
-      />
+      /> */}
       <View style={styles.divider} />
       {/* <DrawerItem
         label={() => (
