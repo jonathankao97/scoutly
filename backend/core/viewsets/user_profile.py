@@ -18,7 +18,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         )
         queryset = (
             queryset.exclude(pk=pk)
-            .exclude(user_type="player")
+            .exclude(user_type="coach")
             .exclude(user__in=seen_profiles)
         )
         page = self.paginate_queryset(queryset)
