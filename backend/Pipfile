@@ -13,6 +13,7 @@ django-phonenumber-field = {version = "*", extras = ["phonenumbers"]}
 django-storages = {version = "*", extras = ["google"]}
 pillow = "*"
 python-decouple = "*"
+django-filter = "*"
 
 [dev-packages]
 
