@@ -1,7 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import TinderCard from 'react-tinder-card';
-import { Image, Text } from 'react-native';
+import { Image, View, ScrollView, Text, StyleSheet } from 'react-native';
+
+import Video from 'react-native-video';
+
+// Within your render function, assuming you have a file called
+// "background.mp4" in your project. You can include multiple videos
+// on a single screen if you like.
+
+// Later on in your styles..
+var styles = StyleSheet.create({
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
+});
 
 const Container = styled.View`
   display: flex;
@@ -58,27 +75,34 @@ const InfoText = styled.Text`
 
 const db = [
   {
-    name: 'Richard Hendricks',
+    name: 'Mo Abaker',
+    highSchool: 'UWC Costa Rica',
+    position: 'GK',
+    height: '6.2',
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
   {
-    name: 'Erlich Bachman',
+    name: 'Eric Chen',
+    highSchool: 'Somewhere in Naperville',
+    position: 'Striker',
+    height: '5.11',
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
   {
-    name: 'Monica Hall',
+    name: 'J Kao',
+    highSchool: 'No Idea',
+    position: 'Doesnt Play',
+    height: '5.10',
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
   {
-    name: 'Jared Dunn',
-    img:
-      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
-  },
-  {
-    name: 'Dinesh Chugtai',
+    name: 'Mo',
+    highSchool: 'UWC Costa Rica',
+    position: 'GK',
+    height: '6.2',
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
@@ -89,10 +113,13 @@ function Simple() {
   const [lastDirection, setLastDirection] = useState();
 
   const swiped = (direction, nameToDelete) => {
-    console.log('swiped');
-    const newArr = [...characters];
-    newArr.filter(item => item.name != nameToDelete);
-    //rconsole.log(newArr)
+    // console.log('swiped');
+    var newArr = [...characters];
+
+    newArr = newArr.filter(item => {
+      return item.name != nameToDelete;
+    });
+    console.log(newArr.length);
     setCharacters(newArr);
     setLastDirection(direction);
   };
@@ -106,8 +133,6 @@ function Simple() {
       <Header>Atheletes</Header>
       <CardContainer>
         {characters.map(character => {
-          console.log(character);
-
           return (
             <TinderCard
               key={character.name}
@@ -115,11 +140,82 @@ function Simple() {
               onCardLeftScreen={() => outOfFrame(character.name)}
             >
               <Card>
-                <Text numberOfLines={3} style = {{
-                  margin: "20px",
-                  fontSize : "24px",
-                  textAlign:"center"
-                }}>{character.name}</Text>
+                <Text
+                  numberOfLines={3}
+                  style={{
+                    margin: 40,
+                    fontSize: 24,
+                    textAlign: 'center',
+                  }}
+                >
+                  {character.name}
+                </Text>
+                <ScrollView>
+                  <Text
+                    numberOfLines={3}
+                    style={{
+                      margin: 20,
+                      fontSize: 18,
+                      textAlign: 'center',
+                    }}
+                  >
+                    {character.highSchool}
+                  </Text>
+                  <Text
+                    numberOfLines={3}
+                    style={{
+                      margin: 20,
+                      fontSize: 18,
+                      textAlign: 'center',
+                    }}
+                  >
+                    {character.position}
+                  </Text>
+                  <Text
+                    numberOfLines={3}
+                    style={{
+                      margin: 20,
+                      fontSize: 18,
+                      textAlign: 'center',
+                    }}
+                  >
+                    {character.height}
+                  </Text>
+                  <Text
+                    numberOfLines={20}
+                    style={{
+                      margin: 20,
+                      fontSize: 18,
+                      textAlign: 'center',
+                    }}
+                  >
+                    {
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
+                    }
+                  </Text>
+                </ScrollView>
+                {/* {
+                  <Video
+                    source={require('../calendar/test.mp4')}
+                    style={{ width: 100, height: 100 }} // Can be a URL or a local file.
+                    //ref={(ref) => {
+                    //this.player = ref
+                    //}}                                      // Store reference
+                    onBuffer={this.onBuffer} // Callback when remote video is buffering
+                    onError={this.videoError} // Callback when video cannot be loaded
+                    //  style={styles.backgroundVideo}
+                  />
+                } */}
+                <Video
+                    source={require('./test.mp4')}
+                    style={{ width: 100, height: 100 }} // Can be a URL or a local file.
+                    //ref={(ref) => {
+                    //this.player = ref
+                    //}}                                      // Store reference
+                    onBuffer={this.onBuffer} // Callback when remote video is buffering
+                    onError={this.videoError} // Callback when video cannot be loaded
+                    //  style={styles.backgroundVideo}
+                  />
               </Card>
             </TinderCard>
           );
