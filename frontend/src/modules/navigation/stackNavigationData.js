@@ -3,7 +3,7 @@ import { TouchableOpacity, Image } from 'react-native';
 
 import TabNavigator from './MainTabNavigator';
 import GalleryScreen from '../gallery/GalleryViewContainer';
-import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
+// import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
 
 // import ProfileScreen from '../profile/ProfileViewContainer';
 // import ArticleScreen from '../article/ArticleViewContainer';
@@ -14,62 +14,60 @@ import AvailableInFullVersion from '../../modules/availableInFullVersion/Availab
 
 import { colors, fonts } from '../../styles';
 
-const headerLeftComponent = (props) => {
-  return (
-    <TouchableOpacity
-      onPress={props.onPress}
+const headerLeftComponent = props => (
+  <TouchableOpacity
+    onPress={props.onPress}
+    style={{
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+    }}
+  >
+    <Image
+      source={require('../../../assets/images/icons/arrow-back.png')}
+      resizeMode="contain"
       style={{
-        paddingHorizontal: 16,
-        paddingVertical: 12,
+        height: 20,
       }}
-    >
-      <Image
-        source={require('../../../assets/images/icons/arrow-back.png')}
-        resizeMode="contain"
-        style={{
-          height: 20,
-        }}
-      />
-    </TouchableOpacity>    
-  )
-}
+    />
+  </TouchableOpacity>
+);
 
-const headerBackground = require('../../../assets/images/topBarBg.png');
+const headerBackground = require('../../../assets/images/scout/backgroundTop.png');
 
 const StackNavigationData = [
   {
-    name: 'React Native Starter',
+    name: 'SCOUT.LY',
     component: TabNavigator,
     headerLeft: null,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
+      fontFamily: fonts.primaryBold,
+      color: '#FF5959',
       fontSize: 18,
     },
   },
-  {
-    name: 'Charts',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Blog',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
+  // {
+  //   name: 'Charts',
+  //   component: AvailableInFullVersion,
+  //   headerLeft: headerLeftComponent,
+  //   headerBackground: { source: headerBackground },
+  //   headerTitleStyle: {
+  //     fontFamily: fonts.primaryRegular,
+  //     color: colors.white,
+  //     fontSize: 18,
+  //   },
+  // },
+  // {
+  //   name: 'Blog',
+  //   component: AvailableInFullVersion,
+  //   headerLeft: headerLeftComponent,
+  //   headerBackground: { source: headerBackground },
+  //   headerTitleStyle: {
+  //     fontFamily: fonts.primaryRegular,
+  //     color: colors.white,
+  //     fontSize: 18,
+  //   },
+  // },
   {
     name: 'Gallery',
     component: GalleryScreen,
@@ -81,61 +79,61 @@ const StackNavigationData = [
       fontSize: 18,
     },
   },
-  {
-    name: 'Profile',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Article',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Chat',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Messages',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-  {
-    name: 'Auth',
-    component: AvailableInFullVersion,
-    headerLeft: headerLeftComponent,
-    headerBackground: { source: headerBackground },
-    headerTitleStyle: {
-      fontFamily: fonts.primaryRegular,
-      color: colors.white,
-      fontSize: 18,
-    },
-  },
-]
+  // {
+  //   name: 'Profile',
+  //   component: AvailableInFullVersion,
+  //   headerLeft: headerLeftComponent,
+  //   headerBackground: { source: headerBackground },
+  //   headerTitleStyle: {
+  //     fontFamily: fonts.primaryRegular,
+  //     color: colors.white,
+  //     fontSize: 18,
+  //   },
+  // },
+  // {
+  //   name: 'Article',
+  //   component: AvailableInFullVersion,
+  //   headerLeft: headerLeftComponent,
+  //   headerBackground: { source: headerBackground },
+  //   headerTitleStyle: {
+  //     fontFamily: fonts.primaryRegular,
+  //     color: colors.white,
+  //     fontSize: 18,
+  //   },
+  // },
+  // {
+  //   name: 'Chat',
+  //   component: AvailableInFullVersion,
+  //   headerLeft: headerLeftComponent,
+  //   headerBackground: { source: headerBackground },
+  //   headerTitleStyle: {
+  //     fontFamily: fonts.primaryRegular,
+  //     color: colors.white,
+  //     fontSize: 18,
+  //   },
+  // },
+  // {
+  //   name: 'Messages',
+  //   component: AvailableInFullVersion,
+  //   headerLeft: headerLeftComponent,
+  //   headerBackground: { source: headerBackground },
+  //   headerTitleStyle: {
+  //     fontFamily: fonts.primaryRegular,
+  //     color: colors.white,
+  //     fontSize: 18,
+  //   },
+  // },
+  // {
+  //   name: 'Auth',
+  //   component: AvailableInFullVersion,
+  //   headerLeft: headerLeftComponent,
+  //   headerBackground: { source: headerBackground },
+  //   headerTitleStyle: {
+  //     fontFamily: fonts.primaryRegular,
+  //     color: colors.white,
+  //     fontSize: 18,
+  //   },
+  // },
+];
 
 export default StackNavigationData;
