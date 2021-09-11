@@ -5,7 +5,11 @@ from django.contrib.auth import get_user_model
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name="user_profile",
+    )
 
     USER_TYPE_CHOICES = (
         ("coach", "coach"),
