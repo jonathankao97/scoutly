@@ -16,7 +16,11 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         seen_profiles = Interaction.objects.filter(sender__user_profile=pk).values(
             "receiver"
         )
-        queryset = queryset.exclude(pk=pk).exclude(user__in=seen_profiles)
+        queryset = (
+            queryset.exclude(pk=pk)
+            .exclude(user_type="player")
+            .exclude(user__in=seen_profiles)
+        )
         page = self.paginate_queryset(queryset)
 
         if page is not None:
