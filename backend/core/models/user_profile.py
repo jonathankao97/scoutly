@@ -7,6 +7,21 @@ from django.contrib.auth import get_user_model
 class UserProfile(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
 
+    USER_TYPE_CHOICES = (
+        ("coach", "coach"),
+        ("player", "player"),
+    )
+
+    user_type = models.CharField(
+        max_length=10,
+        choices=USER_TYPE_CHOICES,
+        default="player",
+    )
+
+    university = models.CharField(max_length=64, blank=True, null=True)
+    job_title = models.CharField(max_length=64, blank=True, null=True)
+    division = models.CharField(max_length=64, blank=True, null=True)
+
     hometown = models.CharField(max_length=64, blank=True, null=True)
     state = models.CharField(max_length=64, blank=True, null=True)
     class_year = models.CharField(max_length=64, blank=True, null=True)
