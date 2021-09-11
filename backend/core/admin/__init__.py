@@ -1,2 +1,3 @@
 from .user import UserAdmin
-from .user_profile import UserProfile
+from .user_profile import UserProfileAdmin
+from .video import VideoAdmin
