@@ -18,6 +18,10 @@ class UserProfile(models.Model):
         default="player",
     )
 
+    profile_picture = models.ImageField(
+        upload_to="profile_pics/%Y/%m/", null=True, blank=True
+    )
+
     university = models.CharField(max_length=64, blank=True, null=True)
     job_title = models.CharField(max_length=64, blank=True, null=True)
     division = models.CharField(max_length=64, blank=True, null=True)

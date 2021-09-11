@@ -10,6 +10,9 @@ djangorestframework-simplejwt = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-phonenumber-field = {version = "*", extras = ["phonenumbers"]}
+django-storages = {version = "*", extras = ["google"]}
+pillow = "*"
+python-decouple = "*"
 
 [dev-packages]
 
