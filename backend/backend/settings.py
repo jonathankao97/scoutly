@@ -148,8 +148,10 @@ GS_BUCKET_NAME = "scoutly"
 STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
-    json.loads(
-        config("GS_CREDENTIALS"),
-    )
+    {
+        "private_key": config("GS_PRIVATE_KEY"),
+        "client_email": config("GS_CLIENT_EMAIL"),
+        "token_uri": config("GS_TOKEN_URI"),
+    }
 )
 django_heroku.settings(locals())
