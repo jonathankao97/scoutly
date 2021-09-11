@@ -9,26 +9,28 @@ import NavigatorView from './RootNavigation';
 
 // import AvailableInFullVersion from '../../modules/availableInFullVersion/AvailableInFullVersionViewContainer';
 
-const iconHome = require('../../../assets/images/drawer/home.png');
-// const iconCalendar = require('../../../assets/images/drawer/calendar.png');
-const iconGrids = require('../../../assets/images/drawer/grids.png');
+// const iconHome = require('../../../assets/images/drawer/home.png');
+// // const iconCalendar = require('../../../assets/images/drawer/calendar.png');
+// const iconGrids = require('../../../assets/images/drawer/grids.png');
 const iconPages = require('../../../assets/images/drawer/pages.png');
 const iconComponents = require('../../../assets/images/drawer/components.png');
 // const iconSettings = require('../../../assets/images/drawer/settings.png');
 const iconBlog = require('../../../assets/images/drawer/blog.png');
+const iconActivity = require('../../../assets/images/tabbar/activity.png');
+const iconReels = require('../../../assets/images/tabbar/reels.png');
 
 const drawerData = [
   {
     name: 'Home',
-    icon: iconHome,
+    icon: iconReels,
   },
   // {
   //   name: 'Calendar',
   //   icon: iconCalendar,
   // },
   {
-    name: 'Grids',
-    icon: iconGrids,
+    name: 'Activity',
+    icon: iconActivity,
   },
   {
     name: 'Pages',
