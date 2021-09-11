@@ -3,4 +3,5 @@ export default {
   primaryRegular: 'Lato-Regular',
   primaryBold: 'Lato-Bold',
   primarySemiBold: 'Lato-SemiBold',
+  poppins: 'Poppins',
 };
