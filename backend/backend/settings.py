@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party apps
     "rest_framework",
+    # apps
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -133,5 +135,7 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     )
 }
+
+AUTH_USER_MODEL = "core.User"
 
 django_heroku.settings(locals())
