@@ -4,14 +4,14 @@ import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { colors, fonts } from '../../styles';
 
 const chartIcon = require('../../../assets/images/pages/chart.png');
-const calendarIcon = require('../../../assets/images/pages/calendar.png');
+// const calendarIcon = require('../../../assets/images/pages/calendar.png');
 const chatIcon = require('../../../assets/images/pages/chat.png');
 const galleryIcon = require('../../../assets/images/pages/gallery.png');
 const profileIcon = require('../../../assets/images/pages/profile.png');
 const loginIcon = require('../../../assets/images/pages/login.png');
 const blogIcon = require('../../../assets/images/pages/blog.png');
 
-export default function PagesScreen(props) {
+export default function ProfileScreen(props) {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
@@ -85,7 +85,7 @@ export default function PagesScreen(props) {
           <Text style={styles.itemText}>Login</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.row}>
+      {/* <View style={styles.row}>
         <TouchableOpacity
           onPress={() => props.navigation.navigate('Blog')}
           style={styles.blogItem}
@@ -98,7 +98,7 @@ export default function PagesScreen(props) {
           />
           <Text style={styles.itemText}>Blog</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
