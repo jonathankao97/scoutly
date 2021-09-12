@@ -206,8 +206,9 @@ function Simple() {
                     //  style={styles.backgroundVideo}
                   />
                 } */}
+                {/*
                 <Video
-                    source={require('./test.mp4')}
+                    source={require('../calendar/test.mp4')}
                     style={{ width: 100, height: 100 }} // Can be a URL or a local file.
                     //ref={(ref) => {
                     //this.player = ref
@@ -216,6 +217,7 @@ function Simple() {
                     onError={this.videoError} // Callback when video cannot be loaded
                     //  style={styles.backgroundVideo}
                   />
+                */}
               </Card>
             </TinderCard>
           );
