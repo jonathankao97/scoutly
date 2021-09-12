@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "93b8e83a52fc67833fdd10b97bbe0d8202ee6afa1b41dbd2dd243317eaf0fc7d"
+            "sha256": "8cfbebc6d6bd682913a072582d7a69191316877b143f591e0696a93c9b968fa8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -138,6 +138,14 @@
             ],
             "index": "pypi",
             "version": "==5.2.0"
+        },
+        "django-sms": {
+            "hashes": [
+                "sha256:7940a08592d9ed9ed434926c465a8e77ad89b1c440e27f7ac14b9f21c6a69307",
+                "sha256:c5ffa7237259c7a22fcbed1e78f67c23eb4a7ad5cd22f209b9039662c944c08e"
+            ],
+            "index": "pypi",
+            "version": "==0.5.0"
         },
         "django-storages": {
             "extras": [
@@ -475,6 +483,13 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==0.4.2"
+        },
+        "twilio": {
+            "hashes": [
+                "sha256:dd8371c9b4ea422d6de7526b63b587da82e8488f2b3f6b1258d2cad6e4006a65"
+            ],
+            "index": "pypi",
+            "version": "==6.50.1"
         },
         "urllib3": {
             "hashes": [

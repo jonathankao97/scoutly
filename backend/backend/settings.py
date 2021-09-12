@@ -158,4 +158,12 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
         "token_uri": config("GS_TOKEN_URI"),
     }
 )
+
+# SMS
+
+SMS_BACKEND = "sms.backends.twilio.SmsBackend"
+TWILIO_ACCOUNT_SID = config("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = config("TWILIO_AUTH_TOKEN")
+TWILIO_PHONE_NUMBER = config("TWILIO_PHONE_NUMBER")
+
 django_heroku.settings(locals())
