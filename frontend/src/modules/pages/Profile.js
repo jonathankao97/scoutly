@@ -1,113 +1,217 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  FlatList,
+} from 'react-native';
+
+import Video from 'react-native-video';
 
 import { colors, fonts } from '../../styles';
 
-const chartIcon = require('../../../assets/images/pages/chart.png');
+// const chartIcon = require('../../../assets/images/pages/chart.png');
 // const calendarIcon = require('../../../assets/images/pages/calendar.png');
-const chatIcon = require('../../../assets/images/pages/chat.png');
-const galleryIcon = require('../../../assets/images/pages/gallery.png');
-const profileIcon = require('../../../assets/images/pages/profile.png');
-const loginIcon = require('../../../assets/images/pages/login.png');
-const blogIcon = require('../../../assets/images/pages/blog.png');
+// const chatIcon = require('../../../assets/images/pages/chat.png');
+// const galleryIcon = require('../../../assets/images/pages/gallery.png');
+// const profileIcon = require('../../../assets/images/pages/profile.png');
+// const loginIcon = require('../../../assets/images/pages/login.png');
+// const blogIcon = require('../../../assets/images/pages/blog.png');
 
 export default function ProfileScreen(props) {
+  const videos = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'g',
+    'h',
+    'i',
+    'g',
+    'h',
+    'i',
+  ];
+  const footer = () => {
+    return <View style={{ height: 350 }} />;
+  };
   return (
     <View style={styles.container}>
-      <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Charts')}
-          style={styles.item}
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        <Image
+          source={{
+            uri:
+              'https://upload.wikimedia.org/wikipedia/commons/b/b6/Justin_Fields_%28cropped%29_%28cropped%29.jpg',
+          }}
+          style={{
+            marginLeft: 20,
+            width: 100,
+            height: 100,
+            borderRadius: 20,
+            marginBottom: 10,
+          }}
+        />
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            paddingHorizontal: 20,
+          }}
         >
-          <Image
-            resizeMode="contain"
-            source={chartIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Charts</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Gallery')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={galleryIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Gallery</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Profile')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={profileIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Profile</Text>
-        </TouchableOpacity>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'flex-start',
+            }}
+          >
+            <Text style={styles.titleText}>NAME OF ATHLETE</Text>
+          </View>
+          <Text style={styles.itemText}>High School | Hometown, State</Text>
+          <Text style={styles.itemText}>Class of CLASS_YEAR</Text>
+          <Text style={styles.itemText}>Position: POSITION</Text>
+        </View>
       </View>
-      <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Chat')}
-          style={styles.item}
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          paddingHorizontal: 20,
+        }}
+      >
+        <Text style={styles.titleText2}>Your Stats</Text>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+          }}
         >
-          <Image
-            resizeMode="contain"
-            source={chatIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Chats</Text>
-        </TouchableOpacity>
-        {/* <TouchableOpacity
-          onPress={() => props.navigation.navigate('Calendar')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={calendarIcon}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Calendar</Text>
-        </TouchableOpacity> */}
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Auth')}
-          style={styles.item}
-        >
-          <Image
-            resizeMode="contain"
-            source={loginIcon}
-            tintColor={colors.primary}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Login</Text>
-        </TouchableOpacity>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <Text style={styles.itemText}>40-yd dash: 4.86 s</Text>
+            <Text style={styles.itemText}>Vertical: 26 in</Text>
+            <Text style={styles.itemText}>Bench: 265 lbs</Text>
+            <Text style={styles.itemText}>Squat: 405 lbs</Text>
+          </View>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginLeft: 80,
+            }}
+          >
+            <Text style={styles.itemText}>GPA: X.XX/4.00</Text>
+            <Text style={styles.itemText}>Club Team: N/A</Text>
+          </View>
+        </View>
       </View>
-      {/* <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate('Blog')}
-          style={styles.blogItem}
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          paddingHorizontal: 20,
+        }}
+      >
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginTop: 20,
+            marginBottom: 10,
+          }}
         >
-          <Image
-            resizeMode="contain"
-            source={blogIcon}
-            tintColor={colors.primary}
-            style={styles.itemImage}
-          />
-          <Text style={styles.itemText}>Blog</Text>
-        </TouchableOpacity>
-      </View> */}
+          <Text style={styles.titleText2}>Your Highlights</Text>
+          <TouchableOpacity>
+            <View
+              style={{
+                paddingHorizontal: 15,
+                paddingVertical: 8,
+                borderRadius: 10,
+                backgroundColor: '#FF5959',
+              }}
+            >
+              <Text style={styles.buttonText}>+ Upload Highlight</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            width: '100%',
+          }}
+        >
+          <View
+            style={{
+              display: 'flex',
+              width: '100%',
+            }}
+          >
+            <FlatList
+              columnWrapperStyle={{ justifyContent: 'space-between' }}
+              data={videos}
+              style={{ marginTop: 2, marginStart: 2 }}
+              renderItem={({ item }) => (
+                <View>
+                  <TouchableOpacity
+                    onPress={() => console.log('Pressed Profile Grid Image')}
+                  >
+                    <Video
+                      source={require('../pages/IMG_7363.mp4')}
+                      style={{
+                        height: 200,
+                        width: 120,
+                        // flex: 1,
+                        marginEnd: 2,
+                        marginBottom: 5,
+                        borderStyle: 'solid',
+                        borderWidth: 0.5,
+                        borderRadius: 10,
+                        borderColor: '#333333',
+                        // alignItems: 'center',
+                      }}
+                    />
+                  </TouchableOpacity>
+                </View>
+              )}
+              numColumns={3}
+              indicatorStyle="white"
+              ListFooterComponent={footer}
+              // showsVerticalScrollIndicator={true}
+            />
+            <Text>END</Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
     backgroundColor: colors.white,
     paddingTop: 10,
+    height: '100%',
   },
   row: {
     flexDirection: 'row',
@@ -125,22 +229,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginHorizontal: 5,
   },
-  blogItem: {
-    width: '31%',
-    height: 120,
-    paddingVertical: 20,
-    borderColor: colors.primaryLight,
-    borderWidth: 1,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    marginHorizontal: 5,
-  },
   itemText: {
-    color: colors.primary,
+    color: '#555555',
+    fontFamily: fonts.primary,
+  },
+  buttonText: {
+    color: '#FFFFFF',
     fontFamily: fonts.primary,
   },
   itemImage: {
     height: 35,
+  },
+  titleText: {
+    color: '#000000',
+    fontFamily: fonts.primaryBold,
+    fontSize: 20,
+  },
+  titleText2: {
+    color: '#555555',
+    fontFamily: fonts.primaryBold,
+    fontSize: 18,
   },
 });
