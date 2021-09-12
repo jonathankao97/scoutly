@@ -138,7 +138,7 @@ function Simple() {
 
   return (
     <Container>
-      <Header>Atheletes</Header>
+      <Header>Athletes</Header>
       <CardContainer>
         {characters.map(character => {
           return (
