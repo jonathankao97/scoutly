@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -21,6 +21,7 @@ import { colors, fonts } from '../../styles';
 // const blogIcon = require('../../../assets/images/pages/blog.png');
 
 export default function ProfileScreen(props) {
+  const [modalOpen, setModalOpenState] = useState(false);
   const videos = [
     'a',
     'b',
@@ -145,7 +146,11 @@ export default function ProfileScreen(props) {
           }}
         >
           <Text style={styles.titleText2}>Your Highlights</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setModalOpenState(true);
+            }}
+          >
             <View
               style={{
                 paddingHorizontal: 15,
