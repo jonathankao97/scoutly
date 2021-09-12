@@ -5,6 +5,10 @@ import { Image, View, ScrollView, Text, StyleSheet } from 'react-native';
 
 import Video from 'react-native-video';
 
+const vid1 = require(`./reel1.mp4`)
+const vid2 = require(`./reel2.mp4`)
+const vid3 = require(`./reel3.mp4`)
+
 // Within your render function, assuming you have a file called
 // "background.mp4" in your project. You can include multiple videos
 // on a single screen if you like.
@@ -18,10 +22,16 @@ var styles = StyleSheet.create({
     bottom: 0,
     right: 0,
   },
+  image: {
+    height: 60,
+    width: 60,
+    borderRadius: 50,
+  },
 });
 
 const Container = styled.View`
   display: flex;
+  background: #ffffff;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -30,13 +40,15 @@ const Container = styled.View`
 const Header = styled.Text`
   color: #000;
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
 const CardContainer = styled.View`
-  width: 90%;
+  width: 100%;
   max-width: 320px;
-  height: 600px;
+  background: #ffffff;
+  height: 640px;
 `;
 
 const Card = styled.View`
@@ -44,7 +56,7 @@ const Card = styled.View`
   background-color: #fff;
   width: 100%;
   max-width: 3200px;
-  height: 600px;
+  height: 640px;
   shadow-color: black;
   shadow-opacity: 0.2;
   shadow-radius: 20px;
@@ -79,14 +91,16 @@ const db = [
     highSchool: 'UWC Costa Rica',
     position: 'GK',
     height: '6.2',
+    video: vid1,
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
   {
     name: 'Eric Chen',
-    highSchool: 'Somewhere in Naperville',
+    highSchool: 'Naperville',
     position: 'Striker',
     height: '5.11',
+    video: vid2,
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
@@ -95,6 +109,7 @@ const db = [
     highSchool: 'No Idea',
     position: 'Doesnt Play',
     height: '5.10',
+    video: vid3,
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
@@ -103,6 +118,7 @@ const db = [
     highSchool: 'UWC Costa Rica',
     position: 'GK',
     height: '6.2',
+    video: vid1,
     img:
       'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
   },
@@ -140,72 +156,114 @@ function Simple() {
               onCardLeftScreen={() => outOfFrame(character.name)}
             >
               <Card>
-                <Text
-                  numberOfLines={3}
+                {/*
+                <View
                   style={{
-                    margin: 40,
-                    fontSize: 24,
-                    textAlign: 'center',
+                    width: '100%',
+                    height: 100,
+                    backgroundColor: '#c4c4c4',
                   }}
                 >
-                  {character.name}
-                </Text>
-                <ScrollView>
-                  <Text
-                    numberOfLines={3}
+                  <View
                     style={{
-                      margin: 20,
-                      fontSize: 18,
-                      textAlign: 'center',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      margin: 30,
                     }}
                   >
-                    {character.highSchool}
-                  </Text>
-                  <Text
-                    numberOfLines={3}
-                    style={{
-                      margin: 20,
-                      fontSize: 18,
-                      textAlign: 'center',
+                    <Image
+                      style={styles.image}
+                      source={{
+                        uri:
+                          'https://upload.wikimedia.org/wikipedia/commons/b/b6/Justin_Fields_%28cropped%29_%28cropped%29.jpg',
+                      }}
+                    />
+                    <View
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Text
+                        numberOfLines={3}
+                        style={{
+                          marginLeft: 20,
+                          fontSize: 24,
+                          textAlign: 'center',
+                        }}
+                      >
+                        {character.name}
+                      </Text>
+                    </View>
+                  </View>
+                    
+                </View>
+                      */}
+
+                <View
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding : 10,
+                    marginLeft:20
+                  }}
+                >
+                  <Image
+                    source={{
+                      uri:
+                        'https://upload.wikimedia.org/wikipedia/commons/b/b6/Justin_Fields_%28cropped%29_%28cropped%29.jpg',
                     }}
-                  >
-                    {character.position}
-                  </Text>
-                  <Text
-                    numberOfLines={3}
                     style={{
-                      margin: 20,
-                      fontSize: 18,
-                      textAlign: 'center',
+                      marginLeft: 20,
+                      width: 70,
+                      height: 70,
+                      borderRadius: 20,
+                      marginBottom: 10,
                     }}
-                  >
-                    {character.height}
-                  </Text>
-                  <Text
-                    numberOfLines={20}
-                    style={{
-                      margin: 20,
-                      fontSize: 18,
-                      textAlign: 'center',
-                    }}
-                  >
-                    {
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
-                    }
-                  </Text>
-                </ScrollView>
-                {/* {
-                  <Video
-                    source={require('../calendar/test.mp4')}
-                    style={{ width: 100, height: 100 }} // Can be a URL or a local file.
-                    //ref={(ref) => {
-                    //this.player = ref
-                    //}}                                      // Store reference
-                    onBuffer={this.onBuffer} // Callback when remote video is buffering
-                    onError={this.videoError} // Callback when video cannot be loaded
-                    //  style={styles.backgroundVideo}
                   />
-                } */}
+                  <View
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems:"center",
+                      paddingHorizontal: 20,
+                    }}
+                  >
+                    <View
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'flex-start',
+                      }}
+                    >
+                      <Text style={{fontSize:32, color:"#FF5959"}}>{character.name}</Text>
+                    </View>
+                  </View>
+                </View>
+
+                {
+                  <View
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      margin: 0,
+                    }}
+                  >
+                    <Video
+                      source={character.video}
+                      style={{ width: 250, height: 360, margin: 20 }} // Can be a URL or a local file.
+                      //ref={(ref) => {
+                      //this.player = ref
+                      //}}                                      // Store reference
+                      onBuffer={this.onBuffer} // Callback when remote video is buffering
+                      onError={this.videoError} // Callback when video cannot be loaded
+                      //  style={styles.backgroundVideo}
+                    />
+                  </View>
+                }
                 {/*
                 <Video
                     source={require('../calendar/test.mp4')}
@@ -218,6 +276,40 @@ function Simple() {
                     //  style={styles.backgroundVideo}
                   />
                 */}
+
+                <Text
+                  numberOfLines={3}
+                  style={{
+                    margin: 5,
+                    fontSize: 18,
+                    textAlign: 'center',
+                  }}
+                >
+                  <Text> High School: </Text>
+                  <Text style={{color:"#FF5959"}}> {character.highSchool} </Text>
+                </Text>
+                <Text
+                  numberOfLines={3}
+                  style={{
+                    margin: 5,
+                    fontSize: 18,
+                    textAlign: 'center',
+                  }}
+                >
+                  <Text> Position: </Text>
+                  <Text style={{color:"#FF5959"}}> {character.position} </Text>
+                </Text>
+                <Text
+                  numberOfLines={3}
+                  style={{
+                    margin: 5,
+                    fontSize: 18,
+                    textAlign: 'center',
+                  }}
+                >
+                 <Text> Height: </Text>
+                  <Text style={{color:"#FF5959"}}> {character.height} </Text>
+                </Text>
               </Card>
             </TinderCard>
           );
