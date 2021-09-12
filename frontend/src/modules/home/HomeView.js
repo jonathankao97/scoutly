@@ -3,56 +3,7 @@ import styled from 'styled-components';
 import TinderCard from 'react-tinder-card';
 import { Image, View, ScrollView, Text, StyleSheet } from 'react-native';
 
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../../../assets/images/background.png')}
-        style={styles.bgImage}
-        resizeMode="cover"
-      >
-        <View style={styles.section}>
-          <Text size={20} white>
-            Home
-          </Text>
-        </View>
-        <View style={styles.section}>
-          <Text color="#19e7f7" size={15}>
-            The smartest Way to build your mobile app
-          </Text>
-          <Text size={30} bold white style={styles.title}>
-            Scout.ly
-          </Text>
-        </View>
-        <View style={[styles.section, styles.sectionLarge]}>
-          <Text color="#19e7f7" hCenter size={15} style={styles.description}>
-            {' '}
-            A powerful starter project that bootstraps development of your
-            mobile application and saves you $20 000*
-          </Text>
-          <View style={styles.priceContainer}>
-            <View style={{ flexDirection: 'row' }}>
-              <Text white bold size={50} style={styles.price}>
-                {isExtended ? '$499' : '$99'}
-              </Text>
-            </View>
-            <TouchableOpacity
-              style={styles.priceLink}
-              onPress={() =>
-                isExtended ? setIsExtended(false) : setIsExtended(true)
-              }
-            >
-              <Text white size={14}>
-                {isExtended
-                  ? 'Multiple Applications License'
-                  : 'Single Application License'}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </ImageBackground>
-    </View>
-  );
-}
+import Video from 'react-native-video';
 
 // Within your render function, assuming you have a file called
 // "background.mp4" in your project. You can include multiple videos
@@ -231,7 +182,7 @@ function Simple() {
                     {character.height}
                   </Text>
                   <Text
-                    numberOfLines={4}
+                    numberOfLines={20}
                     style={{
                       margin: 20,
                       fontSize: 18,
@@ -239,7 +190,7 @@ function Simple() {
                     }}
                   >
                     {
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
                     }
                   </Text>
                 </ScrollView>
@@ -257,7 +208,7 @@ function Simple() {
                 } */}
                 {/*
                 <Video
-                    source={require('./test.mp4')}
+                    source={require('../calendar/test.mp4')}
                     style={{ width: 100, height: 100 }} // Can be a URL or a local file.
                     //ref={(ref) => {
                     //this.player = ref
@@ -266,7 +217,6 @@ function Simple() {
                     onError={this.videoError} // Callback when video cannot be loaded
                     //  style={styles.backgroundVideo}
                   />
-                
                 */}
               </Card>
             </TinderCard>
