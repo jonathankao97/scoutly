@@ -188,6 +188,8 @@ export default function ProfileScreen(props) {
                   >
                     <Video
                       source={require('../pages/IMG_7363.mp4')}
+                      onBuffer={this.onBuffer} // Callback when remote video is buffering
+                      onError={this.videoError}
                       style={{
                         height: 200,
                         width: 120,
