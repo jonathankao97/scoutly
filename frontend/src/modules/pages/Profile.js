@@ -12,6 +12,12 @@ import Video from 'react-native-video';
 
 import { colors, fonts } from '../../styles';
 
+
+const vid1 = require(`../home/reel1.mp4`)
+const vid2 = require(`../home/reel2.mp4`)
+const vid3 = require(`../home/reel3.mp4`)
+
+
 // const chartIcon = require('../../../assets/images/pages/chart.png');
 // const calendarIcon = require('../../../assets/images/pages/calendar.png');
 // const chatIcon = require('../../../assets/images/pages/chat.png');
@@ -23,21 +29,7 @@ import { colors, fonts } from '../../styles';
 export default function ProfileScreen(props) {
   const [modalOpen, setModalOpenState] = useState(false);
   const videos = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'g',
-    'h',
-    'i',
-    'g',
-    'h',
-    'i',
+    vid1, vid2, vid3 
   ];
   const footer = () => {
     return <View style={{ height: 350 }} />;
@@ -187,7 +179,7 @@ export default function ProfileScreen(props) {
                     onPress={() => console.log('Pressed Profile Grid Image')}
                   >
                     <Video
-                      source={require('../pages/IMG_7363.mp4')}
+                      source={item}
                       onBuffer={this.onBuffer} // Callback when remote video is buffering
                       onError={this.videoError}
                       style={{
@@ -223,7 +215,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: colors.white,
-    paddingTop: 10,
+    paddingTop: 40,
     height: '100%',
   },
   row: {

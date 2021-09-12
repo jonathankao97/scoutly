@@ -12,17 +12,19 @@ const iconComponents = require('../../../assets/images/tabbar/components.png');
 const iconActivity = require('../../../assets/images/tabbar/activity.png');
 const iconReels = require('../../../assets/images/tabbar/reels.png');
 const iconProfile = require('../../../assets/images/tabbar/profile.png');
+const iconHome = require('../../../assets/images/Home.png');
+const signIn = require('../../../assets/images/signIn.png');
 
 const tabNavigationData = [
   {
     name: 'Home',
     component: HomeScreen,
-    icon: iconReels,
+    icon: iconHome,
   },
    {
-     name: 'Calendar',
+     name: 'Login',
      component: CalendarScreen,
-     icon: iconCalendar,
+     icon: signIn,
    },
   {
     name: 'Activity',

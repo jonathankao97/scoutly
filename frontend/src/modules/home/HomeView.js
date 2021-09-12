@@ -87,41 +87,33 @@ const InfoText = styled.Text`
 
 const db = [
   {
-    name: 'Mo Abaker',
+    name: 'Mohamed',
     highSchool: 'UWC Costa Rica',
-    position: 'GK',
+    position: 'Wide Receiver',
     height: '6.2',
     video: vid1,
     img:
-      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR25iR9wM6papsovrpjJIOrSz5bRoFrfo1rDg&usqp=CAU',
   },
   {
-    name: 'Eric Chen',
-    highSchool: 'Naperville',
-    position: 'Striker',
+    name: 'Michael',
+    highSchool: 'The Harker School',
+    position: 'Offensive Guard',
     height: '5.11',
     video: vid2,
     img:
-      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+      'https://www.crosstimbersgazette.com/crosstimbersgazette/wp-content/uploads/2018/09/Screen-Shot-2018-09-06-at-4.04.23-PM.png',
   },
   {
-    name: 'J Kao',
-    highSchool: 'No Idea',
-    position: 'Doesnt Play',
+    name: 'David',
+    highSchool: 'Lowell High School',
+    position: 'Quarter Back',
     height: '5.10',
     video: vid3,
     img:
-      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
+      'https://dw3jhbqsbya58.cloudfront.net/editorial/article/a/2/5/a257f114-0afd-467e-acb3-180867ba71a1/0a8ecff5-afbf-ea11-80ce-a444a33a3a97_original.jpg',
   },
-  {
-    name: 'Mo',
-    highSchool: 'UWC Costa Rica',
-    position: 'GK',
-    height: '6.2',
-    video: vid1,
-    img:
-      'https://media.wired.com/photos/5926c635f3e2356fd800a657/master/w_2560%2Cc_limit/9ca106e4894ae453b8d3eca384ef3b13d14172c0efe88ed995266634bf7937d407033e8cc39b15eda5ec7bdb9f21ede5.jpg',
-  },
+  
 ];
 
 function Simple() {
@@ -207,20 +199,22 @@ function Simple() {
                     display: 'flex',
                     flexDirection: 'row',
                     padding : 10,
-                    marginLeft:20
+                    marginLeft:20,
+                    marginTop: 15
+
                   }}
                 >
                   <Image
                     source={{
                       uri:
-                        'https://upload.wikimedia.org/wikipedia/commons/b/b6/Justin_Fields_%28cropped%29_%28cropped%29.jpg',
+                        character.img,
                     }}
                     style={{
                       marginLeft: 20,
-                      width: 70,
-                      height: 70,
-                      borderRadius: 20,
-                      marginBottom: 10,
+                      width: 85,
+                      height: 85,
+                      borderRadius: 50,
+                      marginBottom: 0,
                     }}
                   />
                   <View
@@ -254,7 +248,7 @@ function Simple() {
                   >
                     <Video
                       source={character.video}
-                      style={{ width: 250, height: 360, margin: 20 }} // Can be a URL or a local file.
+                      style={{ width: 250, height: 400, margin: 10 }} // Can be a URL or a local file.
                       //ref={(ref) => {
                       //this.player = ref
                       //}}                                      // Store reference
