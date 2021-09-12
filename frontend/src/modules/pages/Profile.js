@@ -50,15 +50,19 @@ export default function ProfileScreen(props) {
         }}
       >
         <Image
-          source={{
-            uri:
-              'https://upload.wikimedia.org/wikipedia/commons/b/b6/Justin_Fields_%28cropped%29_%28cropped%29.jpg',
-          }}
+          // source={{
+          //   uri:
+          //     'https://upload.wikimedia.org/wikipedia/commons/b/b6/Justin_Fields_%28cropped%29_%28cropped%29.jpg',
+          // }}
+          source={require('./lamar.jpeg')}
           style={{
             marginLeft: 20,
             width: 100,
             height: 100,
             borderRadius: 20,
+            borderWidth: 1,
+            borderStyle: 'solid',
+            borderColor: '#D62627',
             marginBottom: 10,
           }}
         />
@@ -76,11 +80,12 @@ export default function ProfileScreen(props) {
               justifyContent: 'flex-start',
             }}
           >
-            <Text style={styles.titleText}>NAME OF ATHLETE</Text>
+            <Text style={styles.titleText}>Lamar Jackson</Text>
           </View>
-          <Text style={styles.itemText}>High School | Hometown, State</Text>
-          <Text style={styles.itemText}>Class of CLASS_YEAR</Text>
-          <Text style={styles.itemText}>Position: POSITION</Text>
+          <Text style={styles.itemTextPlus}>Boynton Beach Community</Text>
+          <Text style={styles.itemText}>Boynton Beach, FL</Text>
+          <Text style={styles.itemText}>Class of 2015</Text>
+          <Text style={styles.itemText}>Position: QB</Text>
         </View>
       </View>
       <View
@@ -103,10 +108,10 @@ export default function ProfileScreen(props) {
               flexDirection: 'column',
             }}
           >
-            <Text style={styles.itemText}>40-yd dash: 4.86 s</Text>
-            <Text style={styles.itemText}>Vertical: 26 in</Text>
-            <Text style={styles.itemText}>Bench: 265 lbs</Text>
-            <Text style={styles.itemText}>Squat: 405 lbs</Text>
+            <Text style={styles.itemText}>40-yd dash: 4.34 s</Text>
+            <Text style={styles.itemText}>Vertical: --</Text>
+            <Text style={styles.itemText}>Bench: --</Text>
+            <Text style={styles.itemText}>Squat: --</Text>
           </View>
           <View
             style={{
@@ -115,7 +120,9 @@ export default function ProfileScreen(props) {
               marginLeft: 80,
             }}
           >
-            <Text style={styles.itemText}>GPA: X.XX/4.00</Text>
+            <Text style={styles.itemText}>Height: 6-2</Text>
+            <Text style={styles.itemText}>Weight: 212</Text>
+            <Text style={styles.itemText}>GPA: 3.90/4.00</Text>
             <Text style={styles.itemText}>Club Team: N/A</Text>
           </View>
         </View>
@@ -197,7 +204,6 @@ export default function ProfileScreen(props) {
               ListFooterComponent={footer}
               // showsVerticalScrollIndicator={true}
             />
-            <Text>END</Text>
           </View>
         </View>
       </View>
@@ -231,6 +237,10 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: '#555555',
+    fontFamily: fonts.primary,
+  },
+  itemTextPlus: {
+    color: '#222222',
     fontFamily: fonts.primary,
   },
   buttonText: {
